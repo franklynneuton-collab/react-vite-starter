@@ -1,0 +1,412 @@
+﻿src/components/GameCard.jsxGameCard.jsxisCurrent=trueedge_all_open_tabsmkdir -p my-project/src/components
+cd my-project
+code src/components/GameCard.jsxnpm install
+npm run devtabId: 757022875mkdir -p my-project/src/components
+cd my-project
+code src/components/GameCard.jsxnpm install
+npm run devmkdir -p my-project/src/components
+cd my-project
+code src/components/GameCard.jsxmkdir -p my-project/src/components
+cd my-project
+code src/components/GameCard.jsxnpm init -y
+npm install react react-dom vite
+# add a basic dev script to package.json: "dev": "vite"
+npm install
+npm run devgit init
+git add .
+git commit -m "Add GameCard component"
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
+mkdir -p my-project/src/components
+cd my-project
+code src/components/GameCard.jsx
+
+
+npm install
+npm run dev
+
+
+git init
+git add .
+git commit -m "Add GameCard component"
+
+
+
+
+{
+  "name": "my-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "echo \"No linter configured\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Project</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+
+createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+import React from "react";
+import GameCard from "./components/GameCard";
+
+
+export default function App() {
+  const sampleGame = {
+    id: 1,
+    title: "Mystic Quest",
+    platform: "PC",
+    rating: 4.5,
+    cover: "https://via.placeholder.com/240x140.png?text=Game+Cover"
+  };
+
+
+  return (
+    <main className="app">
+      <h1>Game Library</h1>
+      <div className="grid">
+        <GameCard game={sampleGame} />
+      </div>
+    </main>
+  );
+}import React from "react";
+import GameCard from "./components/GameCard";
+
+
+export default function App() {
+  const sampleGame = {
+    id: 1,
+    title: "Mystic Quest",
+    platform: "PC",
+    rating: 4.5,
+    cover: "https://via.placeholder.com/240x140.png?text=Game+Cover"
+  };
+
+
+  return (
+    <main className="app">
+      <h1>Game Library</h1>
+      <div className="grid">
+        <GameCard game={sampleGame} />
+      </div>
+    </main>
+  );
+}
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#60a5fa;
+  --text:#e6eef8;
+}
+
+
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,var(--bg),#071022);
+  color:var(--text);
+  padding:24px;
+}
+
+
+.app h1{margin:0 0 16px 0;font-size:20px}
+.grid{display:flex;gap:16px;flex-wrap:wrap}
+
+
+.game-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.04);
+  padding:12px;
+  width:260px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+
+.game-cover{width:100%;height:140px;object-fit:cover;border-radius:6px}
+.game-title{font-weight:600;font-size:16px;margin:0}
+.game-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+.btn{
+  background:var(--accent);
+  color:#04263b;
+  border:none;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+
+import React from "react";
+
+
+export default function GameCard({ game }) {
+  if (!game) {
+    return (
+      <div className="game-card">
+        <div style={{height:140,background:"#071022",borderRadius:6}} />
+        <div style={{height:16,width:"60%",background:"#071022",borderRadius:4}} />
+        <div style={{height:12,width:"40%",background:"#071022",borderRadius:4}} />
+      </div>
+    );
+  }
+
+
+  const { title, platform, rating, cover } = game;
+
+
+  return (
+    <article className="game-card" aria-labelledby={`game-${game.id}-title`}>
+      <img className="game-cover" src={cover} alt={`${title} cover`} />
+      <div>
+        <h2 id={`game-${game.id}-title`} className="game-title">{title}</h2>
+        <div className="game-meta">
+          <span>{platform}</span>
+          <span>{rating} ★</span>
+        </div>
+      </div>
+      <div style={{marginTop:"auto",display:"flex",gap:8}}>
+        <button className="btn" type="button">Play</button>
+        <button className="btn" type="button" style={{background:"transparent",color:"var(--text)",border:"1px solid rgba(255,255,255,0.06)"}}>Details</button>
+      </div>
+    </article>
+  );
+}node_modules
+dist
+.env
+.vscode
+.DS_Store
+# My Project
+
+
+Minimal React + Vite starter with a sample GameCard component.
+
+
+## Quick start
+
+
+1. Install dependencies
+   npm install
+
+
+2. Run dev server
+   npm run dev
+
+
+3. Build for production
+   npm run build
+
+
+## Notes
+
+
+- Paste your `GameCard.jsx` code into `src/components/GameCard.jsx` if you already have it.
+- Do not commit any browser metadata or exported tab dumps to the repository.
+
+
+
+
+npm install
+npm run dev
+mkdir -p my-project/src/components
+cd my-project
+code src/components/GameCard.jsx
+# paste the GameCard.jsx code and save
+
+
+Package.json index.html src/main.jsx src/App.jsx src/index.css .gitignore README.md 
+
+
+
+
+npm install
+npm run dev
+import React from "react";
+
+
+export default function GameCard({ game }) {
+  if (!game) {
+    return (
+      <div className="game-card" aria-busy="true" aria-label="Loading game card">
+        <div style={{ height: 140, background: "#071022", borderRadius: 6 }} />
+        <div style={{ height: 16, width: "60%", background: "#071022", borderRadius: 4, marginTop: 10 }} />
+        <div style={{ height: 12, width: "40%", background: "#071022", borderRadius: 4, marginTop: 8 }} />
+      </div>
+    );
+  }
+
+
+  const { id, title, platform, rating, cover } = game;
+
+
+  return (
+    <article className="game-card" aria-labelledby={`game-${id}-title`} role="article">
+      <img
+        className="game-cover"
+        src={cover}
+        alt={title ? `${title} cover` : "Game cover"}
+        loading="lazy"
+        width="240"
+        height="140"
+      />
+
+
+      <div>
+        <h2 id={`game-${id}-title`} className="game-title">
+          {title}
+        </h2>
+
+
+        <div className="game-meta" aria-hidden="false">
+          <span>{platform}</span>
+          <span>{typeof rating === "number" ? `${rating} ★` : "—"}</span>
+        </div>
+      </div>
+
+
+      <div style={{ marginTop: "auto", display: "flex", gap: 8 }}>
+        <button
+          className="btn"
+          type="button"
+          onClick={() => {
+            /* placeholder: wire up play action */
+            console.log("Play", id);
+          }}
+          aria-label={`Play ${title}`}
+        >
+          Play
+        </button>
+
+
+        <button
+          className="btn"
+          type="button"
+          style={{
+            background: "transparent",
+            color: "var(--text)",
+            border: "1px solid rgba(255,255,255,0.06)",
+          }}
+          onClick={() => {
+            /* placeholder: open details */
+            console.log("Details", id);
+          }}
+          aria-label={`View details for ${title}`}
+        >
+          Details
+        </button>
+      </div>
+    </article>
+  );
+}
+npm install
+
+
+npm run devgit init
+git add .
+git commit -m "Initial project with GameCard component"
+
+
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
+
+
+
+
+npm install
+
+
+npm run dev
+
+
+
+
+
+
+git init
+git add .
+git commit -m "Initial project with GameCard component"
+
+
+
+
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
+
+
+
+
+git init
+
+
+echo "node_modules/
+dist/
+.env
+.DS_Store
+.vscode/" > .gitignore
+
+
+git add .
+
+
+
+
+git commit -m "Initial commit: React + Vite starter with GameCard component"
+
+
+
+
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/franklynneuton-collab/react-vite-starter.git
+git branch -M main
+git push -u origin main
+
+
+cd Desktop/react-vite-starter
+git init
+
+
+git add .
+git commit -m "Initial commit: React + Vite starter with GameCard component"
+git remote add origin https://github.com/franklynneuton-collab/react-vite-starter.git
+git branch -M main
+git push -u origin main
